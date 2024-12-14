@@ -1,0 +1,77 @@
+
+//********* NAVBAR **********//
+//**********************************************************//
+/*/ ================ \
+       NavBar
+\ ================ /*/
+.navbar {
+    @include LongLargPage;
+    //background-color: $light-color;
+    display: flex;
+    flex-direction: row;
+    @include AllTexte;
+  }
+  
+  .navbar .leftSide {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+  }
+  
+  .navbar .leftSide img {
+    width: 150px;
+  }
+  
+  .navbar #open {
+    padding-left: 0px;
+  }
+  
+  .navbar #open img {
+    display: none;
+  }
+  
+  .navbar #close img {
+    display: inherit;
+  }
+  
+  .navbar #open .hiddenLinks {
+    margin-left: 30px;
+  }
+  
+  .navbar #close .hiddenLinks {
+    display: none;
+  }
+  
+  .navbar .rightSide {
+    @include flex-center;
+  }
+  
+  .navbar a {
+    color: grey;
+    text-decoration: none;
+    margin: 20px;
+    align-items: center;
+  }
+  
+  // .navbar .rightSide button {
+  //   background-color: transparent;
+  //   border: none;
+  //   color: $light-color;
+  //   cursor: pointer;
+  // }
+  
+  // .navbar .rightSide svg {
+  //   font-size: 40px;
+  // }
+  
+  .navbar #close .hiddenLinks {
+    display: none;
+  }
+  
+  .navbar #open a {
+    width: 70px;
+    margin: 5px;
+  }
+  

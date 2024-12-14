@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+//        IMPORTATIONS 
+//**********************************//
+@import "./components//scss/bases/_variables.scss";
+@import "./components/scss/bases/_bases";
+@import "./components/scss/abstracts/mixin";
+@import "./components/scss/layout/grid";
+@import "./components/scss/utilities/button";
+
+
+//  FONTS
+//**********************************//
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+//  IMPORTATIONS FOOTER - NAVBAR
+//**********************************//
+@import "./components/scss/layout/navbar";
+@import "./components/scss/layout/_footer";
+
+//  FORMULAIRE
+//**********************************//
+@import "./components/scss/utilities/formulaires";
+
+
+//      PAGES
+//**********************************//
+@import "./components/scss/pages/_accueil";
+// @import "./components/scss/pages/_contact";
+// @import "./components/scss/pages/_services";
+@import "./components/scss/pages/testDev";
+// @import "./components/scss/pages/testTM";
+@import "./components/scss/pages/test";
+// @import "./components/scss/pages/apropos";
+
+
+
+$breakpoints: (
+  'xs': 'min-width: 360px',
+  'sm': 'min-width: 576px',
+  'md': 'min-width:  768px',
+  'lg': 'min-width:  992px',
+  'xl': 'min-width: 1200px',
+  'xxl': 'min-width: 1400px'
+);
+
+
+

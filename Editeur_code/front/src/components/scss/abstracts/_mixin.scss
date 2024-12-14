@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+//**********************************//
+//  PARAMETRE PAR DEFAUTS
+//********************************
+@mixin defaultValue {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: $light-color;
+  background: none;
+}
+
+@mixin DefaultUl{
+  list-style: none;
+}
+
+
+
+@mixin LongLargPage{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+//********* POSITION **********//
+//*****************************//
+@mixin absolute-elt($top, $right, $bottom, $left, $x, $y){
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    transform: translate($x, $y);
+}
+
+
+@mixin tra_nsition {
+  transition: 0.3s
+}
+
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*/ ================ \
+      AVEC IMAGES
+\ ================ /*/
+@mixin WithImg {
+  background-size: cover;
+  background-position: center;
+}
+

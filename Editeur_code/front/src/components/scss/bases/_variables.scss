@@ -1,0 +1,80 @@
+//**********************************//
+//  Variable Couleurs
+//**********************************//
+$linear_gradient: #D58600,#EA0029,#CA007B;
+$primary: #0369BC;  //background blue
+$secondary: #FFC52D;
+$black: #29335c;
+$info: #D58600;
+$bg: rgba($black, 0.3);
+$bg-color: #e5e7eb;
+$primary-color: #222;
+$highlight-color: #ca007b;
+$light-color: #fefefe;
+
+$gold: #fff900;
+
+$border-color: #ddd;
+$ff-primary: 'Poppins', sans-serif; //sherif pour header 
+$success: #0F51;
+$bg-formulaire: #ffffffcb;
+$bg-footer:#ffffff; 
+$link-color-txt: #4b4c4d;
+$jaune-btn: #f1ee8e;
+$linkHover: #9ca7b6;
+
+//INPUT
+$inputHover : #dfdfe1db;
+
+//Couleur beu
+$blue1 : #76c893;
+$blue2 : #52B69A;
+$blue3 : #34A0A4;
+$blue4 : #168AAD;
+
+//GRADIEN BLUE
+$gradianBlue: #5ecde1, #2CAEE2; 
+$gradianYellow: #F4A261, #FFC52D; 
+
+
+// Espacements
+$spacer: 1rem;
+$spacer-small: 0.5rem;
+$spacer-large: 2rem;
+$margin-base: $spacer;
+$margin-large: $spacer-large;
+$padding-base: $spacer;
+$padding-large: $spacer-large;
+
+// Tailles
+$button-height: 2.5rem;
+$card-width: 300px;
+$modal-width: 600px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index
+$zindex-dropdown: 1000;
+$zindex-modal: 1050;
+$zindex-tooltip: 1100;
+
+// Bordures
+$border-radius: 0.25rem;
+$border-color: #dee2e6;
+
+// Ombres portées
+$box-shadow-base: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$box-shadow-large: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+
+.test {
+    background: #eab308
+}
+
+
+
+
+
