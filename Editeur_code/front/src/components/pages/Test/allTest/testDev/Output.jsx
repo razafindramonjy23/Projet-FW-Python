@@ -67,7 +67,7 @@ const Output = ({ editorRef, language }) => {
 
       {/* Affichage des suggestions */}
       <Text mt={4} mb={2} fontSize="lg">
-        Suggestions from Gemini
+        Suggestions de Gemini
       </Text>
       <Box
         height="35vh"

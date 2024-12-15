@@ -38,23 +38,24 @@ const useMultiStepForm = (initialData, totalSteps) => {
       // Fonction utilitaire pour vérifier si tous les champs sont valides
       const areFieldsValid = (fields) =>
         fields.every((field) => field?.trim?.() !== "");
-  
+
       switch (step) {
         case 1:
           return (
             formData.technicalSkills?.languages?.length > 0 &&
             formData.technicalSkills?.selectedLanguageLevel?.trim() !== ""
           );
-  
+
         case 2:
           return areFieldsValid([
             formData.InformationPersonnel?.nom_prenom,
+            formData.InformationPersonnel?.age,
             formData.InformationPersonnel?.situation_matrimoniale,
             formData.InformationPersonnel?.adresse,
             formData.InformationPersonnel?.email,
             formData.InformationPersonnel?.telephone,
           ]);
-  
+
         case 3:
           return areFieldsValid([
             formData.SavoirFormation?.poste_envisage,
@@ -62,13 +63,13 @@ const useMultiStepForm = (initialData, totalSteps) => {
             formData.SavoirFormation?.dernier_travail,
             formData.SavoirFormation?.satisfaction_carriere,
           ]);
-  
+
         case 4:
           return areFieldsValid([
             formData.Ponctualite?.retard_dernier,
             formData.Ponctualite?.definition_retard,
           ]);
-  
+
         case 5:
           return areFieldsValid([
             formData.Tenacite?.difficulte_professionnelle,
@@ -76,30 +77,30 @@ const useMultiStepForm = (initialData, totalSteps) => {
             formData.Tenacite?.critique_travail,
             formData.Tenacite?.conflit_interets,
           ]);
-  
+
         case 6:
           return areFieldsValid([
             formData.Integration?.type_personnes_preferees,
             formData.Integration?.reaction_remarque_negative,
             formData.Integration?.depasse_par_situation,
           ]);
-  
+
         case 7:
           return areFieldsValid([
             formData.SensDuService?.type_personnes_preferees,
             formData.SensDuService?.tache_non_attribuee,
             formData.SensDuService?.esprit_initiative,
           ]);
-  
+
         case 8:
           return areFieldsValid([
             formData.Autonomie?.travail_seul,
             formData.Autonomie?.demande_travail_non_prevus,
           ]);
-  
+
         case 9:
           return areFieldsValid([formData.Organisation?.organisation_journee]);
-  
+
         case 10:
           return areFieldsValid([
             formData.Satisfaction?.satisfactions_postes,
@@ -109,7 +110,7 @@ const useMultiStepForm = (initialData, totalSteps) => {
             formData.Satisfaction?.travail_soir_weekend,
             formData.Satisfaction?.competence_apportee,
           ]);
-  
+
         case 11:
           return areFieldsValid([
             formData.TestTechniquePython?.execution_python,
@@ -120,7 +121,7 @@ const useMultiStepForm = (initialData, totalSteps) => {
             formData.TestTechniquePython?.capture_exception,
             formData.TestTechniquePython?.threading_vs_multiprocessing,
           ]);
-  
+
         case 12:
           return areFieldsValid([
             formData.TestTechniqueJavaScript?.local_state_vs_global_state,
@@ -128,21 +129,20 @@ const useMultiStepForm = (initialData, totalSteps) => {
             formData.TestTechniqueJavaScript?.app_component,
             formData.TestTechniqueJavaScript?.userform_component,
           ]);
-  
+
         case 13:
           return areFieldsValid([
             formData.TestTechniqueFullstack?.route_serveur,
             formData.TestTechniqueFullstack?.optimisation_requetes_bdd,
             formData.TestTechniqueFullstack?.deploiement_fullstack,
           ]);
-  
+
         default:
           return false;
       }
     },
     [formData]
   );
-  
 
   return {
     currentStep,
@@ -308,14 +308,20 @@ function Entretien() {
                     <input
                       type="checkbox"
                       className="form-checkbox"
-                      checked={formData.technicalSkills.languages.includes(lang)}
+                      checked={formData.technicalSkills.languages.includes(
+                        lang
+                      )}
                       onChange={(e) => {
                         const updatedLangs = e.target.checked
                           ? [...formData.technicalSkills.languages, lang]
                           : formData.technicalSkills.languages.filter(
                               (l) => l !== lang
                             );
-                        updateFormData("technicalSkills", "languages", updatedLangs);
+                        updateFormData(
+                          "technicalSkills",
+                          "languages",
+                          updatedLangs
+                        );
                       }}
                     />
                     <span className="ml-2">{lang}</span>
@@ -323,7 +329,7 @@ function Entretien() {
                 ))}
               </div>
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Niveau de Maîtrise
@@ -348,14 +354,14 @@ function Entretien() {
             </div>
           </div>
         );
-  
+
       case 2:
         return (
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-blue-900">
               Informations Personnelles
             </h2>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Nom et Prénom(s)
@@ -374,7 +380,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Âge
@@ -391,7 +397,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Situation Matrimoniale
@@ -412,7 +418,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Adresse
@@ -431,7 +437,26 @@ function Entretien() {
                 }
               />
             </div>
-  
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Votre adresse complète"
+                value={formData.InformationPersonnel.email || ""}
+                onChange={(e) =>
+                  updateFormData(
+                    "InformationPersonnel",
+                    "email",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Téléphone
@@ -452,14 +477,14 @@ function Entretien() {
             </div>
           </div>
         );
-  
+
       case 3:
         return (
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-blue-600">
               Savoir et Formation
             </h2>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Poste Envisagé
@@ -467,7 +492,7 @@ function Entretien() {
               <input
                 type="text"
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
-                placeholder="Poste envisagé"
+                placeholder="Poste envisagée chez KONTIKI et qu'est-ce qui vous attire, dans le poste proposé?"
                 value={formData.SavoirFormation.poste_envisage || ""}
                 onChange={(e) =>
                   updateFormData(
@@ -478,7 +503,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Formation et Renseignements
@@ -486,7 +511,7 @@ function Entretien() {
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
-                placeholder="Détails sur votre formation"
+                placeholder="Avez-vous suivi des formations ou vous êtes vous renseignés sur le poste si oui, racontez nous"
                 value={formData.SavoirFormation.formation_renseignements || ""}
                 onChange={(e) =>
                   updateFormData(
@@ -497,7 +522,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Dernier Travail
@@ -505,7 +530,7 @@ function Entretien() {
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
-                placeholder="Décrivez votre dernier poste et vos responsabilités"
+                placeholder="Quel est le dernier travai que vous avez occupé? Combien de temps? Et la raison pour laquelle vous avez quitté votre dernier emploi."
                 value={formData.SavoirFormation.dernier_travail || ""}
                 onChange={(e) =>
                   updateFormData(
@@ -516,7 +541,7 @@ function Entretien() {
                 }
               />
             </div>
-  
+
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Satisfaction de Carrière
@@ -535,25 +560,6 @@ function Entretien() {
                 }
               />
             </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Satisfaction carrière
-              </label>
-              <textarea
-                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
-                rows="3"
-                placeholder="Décrivez les défis que vous avez rencontrés et comment vous les avez surmontés"
-                value={formData.SavoirFormation.satisfaction_carriere}
-                onChange={(e) =>
-                  updateFormData(
-                    "SavoirFormation",
-                    "satisfaction_carriere",
-                    e.target.value
-                  )
-                }
-              />
-            </div>
           </div>
         );
 
@@ -561,21 +567,21 @@ function Entretien() {
         return (
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-blue-600">
-              Motivation Personnelle
+            Ponctualite
             </h2>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Qu'est-ce qui vous motive en tant que développeur ?
+                Comment avez-vous géré votre dernier retard?
               </label>
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
                 placeholder="Partagez votre passion et motivation pour le développement logiciel"
-                value={formData.personalQuestions.motivation}
+                value={formData.Ponctualite.retard_dernier}
                 onChange={(e) =>
                   updateFormData(
-                    "personalQuestions",
-                    "motivation",
+                    "Ponctualite",
+                    "retard_dernier",
                     e.target.value
                   )
                 }
@@ -584,17 +590,17 @@ function Entretien() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Objectifs de Carrière
+                Donnez nous votre definition de mot retard
               </label>
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
                 placeholder="Décrivez vos objectifs professionnels à court et long terme"
-                value={formData.personalQuestions.careerGoals}
+                value={formData.Ponctualite.definition_retard}
                 onChange={(e) =>
                   updateFormData(
-                    "personalQuestions",
-                    "careerGoals",
+                    "Ponctualite",
+                    "definition_retard",
                     e.target.value
                   )
                 }
@@ -602,6 +608,52 @@ function Entretien() {
             </div>
           </div>
         );
+      
+        case 5:
+          return (
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold text-blue-600">
+              Tenacite
+              </h2>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Comment avez-vous géré votre dernier retard?
+                </label>
+                <textarea
+                  className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                  rows="3"
+                  placeholder="Partagez votre passion et motivation pour le développement logiciel"
+                  value={formData.Ponctualite.retard_dernier}
+                  onChange={(e) =>
+                    updateFormData(
+                      "Ponctualite",
+                      "retard_dernier",
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+  
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Donnez nous votre definition de mot retard
+                </label>
+                <textarea
+                  className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                  rows="3"
+                  placeholder="Décrivez vos objectifs professionnels à court et long terme"
+                  value={formData.Ponctualite.definition_retard}
+                  onChange={(e) =>
+                    updateFormData(
+                      "Ponctualite",
+                      "definition_retard",
+                      e.target.value
+                    )
+                  }
+                />
+              </div>
+            </div>
+          );
 
       default:
         return null;
@@ -646,7 +698,7 @@ function Entretien() {
             </button>
           )}
 
-          {currentStep < 4 ? (
+          {currentStep < 13 ? (
             <button
               onClick={nextStep}
               disabled={!isStepValid(currentStep)}
