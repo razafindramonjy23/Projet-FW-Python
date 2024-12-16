@@ -12,7 +12,8 @@ import TestDev from './components/pages/Test/allTest/testDev/TestDev.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import EditeurDeCode from './components/pages/Test/allTest/testDev/Code-editor.jsx';
 import Entretien from './components/pages/Test/allTest/testDev/Entretien.jsx'
-
+import Services from './components/pages/Services/Services.jsx'
+import Contact from './components/pages/Contact/Contact.jsx'
 
 import './App.scss';
 // import Activites from './components/pages/A_propos/actvt/Activites.jsx';
@@ -32,10 +33,11 @@ function App() {
         <Route path='/accueil' element={<Accueil />} />
         {/* <Route path='/services' element={<Services />} /> */}
         <Route path='/test' element={<Test />} />
-        {/* <Route path='/Contact' element={<Contact />} /> */}
+        <Route path='/contact' element={<Contact />} />
         {/* <Route path='/apropos' element={<A_propos />} /> */}
         <Route path='/codeEditor' element={<EditeurDeCode />} />
         <Route path='/entretien' element={<Entretien />} />
+        <Route path='/services' element={<Services />} />
 
         {/* TESTES */}
         <Route path='testDev' element={<TestDev />} />

@@ -549,7 +549,7 @@ function Entretien() {
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
-                placeholder="Parlez de votre satisfaction professionnelle"
+                placeholder="Etes-vous aujourd'hui satisfait de votre carrière?"
                 value={formData.SavoirFormation.satisfaction_carriere || ""}
                 onChange={(e) =>
                   updateFormData(
@@ -566,17 +566,15 @@ function Entretien() {
       case 4:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-blue-600">
-            Ponctualite
-            </h2>
+            <h2 className="text-2xl font-bold text-blue-600">Ponctualite</h2>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Comment avez-vous géré votre dernier retard?
+                Retard
               </label>
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
-                placeholder="Partagez votre passion et motivation pour le développement logiciel"
+                placeholder="La dernière fois que vous êtes arrivé en retard, comment avez-vous géré la sitation?"
                 value={formData.Ponctualite.retard_dernier}
                 onChange={(e) =>
                   updateFormData(
@@ -590,12 +588,12 @@ function Entretien() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Donnez nous votre definition de mot retard
+                Donnez nous votre definition du retard
               </label>
               <textarea
                 className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
                 rows="3"
-                placeholder="Décrivez vos objectifs professionnels à court et long terme"
+                placeholder="Selon vous, à partir de combien de temps êtes-vous en retard?"
                 value={formData.Ponctualite.definition_retard}
                 onChange={(e) =>
                   updateFormData(
@@ -608,52 +606,675 @@ function Entretien() {
             </div>
           </div>
         );
-      
-        case 5:
-          return (
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-blue-600">
-              Tenacite
-              </h2>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Comment avez-vous géré votre dernier retard?
-                </label>
-                <textarea
-                  className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
-                  rows="3"
-                  placeholder="Partagez votre passion et motivation pour le développement logiciel"
-                  value={formData.Ponctualite.retard_dernier}
-                  onChange={(e) =>
-                    updateFormData(
-                      "Ponctualite",
-                      "retard_dernier",
-                      e.target.value
-                    )
-                  }
-                />
-              </div>
-  
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Donnez nous votre definition de mot retard
-                </label>
-                <textarea
-                  className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
-                  rows="3"
-                  placeholder="Décrivez vos objectifs professionnels à court et long terme"
-                  value={formData.Ponctualite.definition_retard}
-                  onChange={(e) =>
-                    updateFormData(
-                      "Ponctualite",
-                      "definition_retard",
-                      e.target.value
-                    )
-                  }
-                />
-              </div>
+
+      case 5:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">Tenacite</h2>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Difficulté
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Racontez-nous la dernière fois où vous avez été confroné à une difficulté en situation professionnelle. Qu'avez-vous fait? Comment avez-vous réagi?"
+                value={formData.Tenacite.difficulte_professionnelle}
+                onChange={(e) =>
+                  updateFormData(
+                    "Tenacite",
+                    "difficulte_professionnelle",
+                    e.target.value
+                  )
+                }
+              />
             </div>
-          );
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Activités difficiles
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Dans vos expériences professionnelle, quelles ont été les activités les plus difficiles à réaliser pour vous?"
+                value={formData.Tenacite.activites_difficiles}
+                onChange={(e) =>
+                  updateFormData(
+                    "Tenacite",
+                    "activites_difficiles",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Critiques
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Dans vos expériences professionnelle, quelles ont été les activités les plus difficiles à réaliser pour vous?"
+                value={formData.Tenacite.critique_travail}
+                onChange={(e) =>
+                  updateFormData("Tenacite", "critique_travail", e.target.value)
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Confit d'intérêts
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Dans vos expériences professionnelle, quelles ont été les activités les plus difficiles à réaliser pour vous?"
+                value={formData.Tenacite.conflit_interets}
+                onChange={(e) =>
+                  updateFormData("Tenacite", "conflit_interets", e.target.value)
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 6:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">Integration</h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Choix équipe
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Avec quels types de personnes aimez-vous le mieux travailler? Pour quel raisons?"
+                value={formData.Integration.type_personnes_preferees}
+                onChange={(e) =>
+                  updateFormData(
+                    "Integration",
+                    "type_personnes_preferees",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Remarque négative
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Un collègue vous fait une remarque négative sur la qualité de votre travail. Comment réagissez-vous?"
+                value={formData.Integration.reaction_remarque_negative}
+                onChange={(e) =>
+                  updateFormData(
+                    "Integration",
+                    "reaction_remarque_negative",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Complications
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Avez-vous déjà été dépassé par la situation? Donnez-moi un exemple."
+                value={formData.Integration.depasse_par_situation}
+                onChange={(e) =>
+                  updateFormData(
+                    "Integration",
+                    "depasse_par_situation",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 7:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">
+              Sens du sérvice
+            </h2>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Aider les autres
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Vous êtes salarié de notre société, affecté au département DEVELOPPEUR. Ce matin vous êtes occupé dans une tâche urgente et importante. L'un de vos collègues va vers vous et se plaint vivement auprès de vous, car il est en retard sur son travail parce que son ordi a des soucis (la connexion internet ne marche pas). Quelle est votre réaction?"
+                value={formData.SensDuService.reaction_collegue_probleme}
+                onChange={(e) =>
+                  updateFormData(
+                    "SensDuService",
+                    "reaction_collegue_probleme",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Agir
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Vous remarquez quil y a une tâche qui est pas faite et pourtant cette tâche ne fait pas partie de votre fiche de poste. Que faites-vous?"
+                value={formData.SensDuService.tache_non_attribuee}
+                onChange={(e) =>
+                  updateFormData(
+                    "SensDuService",
+                    "tache_non_attribuee",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Initiative
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Avez-vous l'esprit d'initiative? Prouvez-le à l'aIde d'exemples."
+                value={formData.SensDuService.esprit_initiative}
+                onChange={(e) =>
+                  updateFormData(
+                    "SensDuService",
+                    "esprit_initiative",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 8:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">Autonomie</h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Travailler seul
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Avez-vous déjà travaillé seul? Qu'est-ce que vous avez trouvé difficile?"
+                value={formData.Autonomie.reaction_collegue_probleme}
+                onChange={(e) =>
+                  updateFormData("Autonomie", "travail_seul", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Heure suplémentaire
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Le client vous demande un travail non prévu sur votre fiche de poste? Que faites-vous?"
+                value={formData.Autonomie.demande_travail_non_prevus}
+                onChange={(e) =>
+                  updateFormData(
+                    "Autonomie",
+                    "demande_travail_non_prevus",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 9:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">Organisation</h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Comment vous organisez-vous?
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Vous arrivez au bureau. Que faites-vous en premier? Comment vous organisez-vous?"
+                value={formData.Organisation.organisation_journee}
+                onChange={(e) =>
+                  updateFormData(
+                    "Organisation",
+                    "organisation_journee",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 10:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">Satisfaction</h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Vos satisfactions ancien poste
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Quelles ont été vos satisfactions dans les postes que vous avez occupés?"
+                value={formData.Satisfaction.satisfactions_postes}
+                onChange={(e) =>
+                  updateFormData(
+                    "Satisfaction",
+                    "satisfactions_postes",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Poste idéal
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Quel serait le poste Idéal pour vous?"
+                value={formData.Satisfaction.poste_ideal}
+                onChange={(e) =>
+                  updateFormData("Satisfaction", "poste_ideal", e.target.value)
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Choix entreprise
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Si on vous propose le même salaire et le même nombre d'heures, entre deux entreprises, laquelle choisissez-vous?"
+                value={formData.Satisfaction.choix_entreprises}
+                onChange={(e) =>
+                  updateFormData(
+                    "Satisfaction",
+                    "choix_entreprises",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Traitement
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Quand avez-vous senti dans vos précédents postes que vous avez été bien traité?"
+                value={formData.Satisfaction.bien_traite}
+                onChange={(e) =>
+                  updateFormData("Satisfaction", "bien_traite", e.target.value)
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Travailler le weekend
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Est-ce un problème si l'on vous demande de travailler le soir et/ou le week-end?"
+                value={formData.Satisfaction.travail_soir_weekend}
+                onChange={(e) =>
+                  updateFormData(
+                    "Satisfaction",
+                    "travail_soir_weekend",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Apport pour l'entreprise
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Quelle compétence pouvez-vous apporter à cette entreprise?"
+                value={formData.Satisfaction.competence_apportee}
+                onChange={(e) =>
+                  updateFormData(
+                    "Satisfaction",
+                    "competence_apportee",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 11:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">
+              Teste Technique Python
+            </h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Execution python
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Expliquez brièvement le processus d'exécution d'un fichier Python"
+                value={formData.TestTechniquePython.execution_python}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "execution_python",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                specificateurs d'accès
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Nous savons que Python est un langage orienté objet, mais a-t-il des spécificateurs d'accès ?"
+                value={formData.TestTechniquePython.specificateurs_acces}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "specificateurs_acces",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                copie-superficielle-profonde
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Quand devez-vous utiliser la copie superficielle au lieu de la copie profonde, et vice versa ?"
+                value={
+                  formData.TestTechniquePython.copie_superficielle_profonde
+                }
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "copie_superficielle_profonde",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Utilisation de decorateurs
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Expliquez l'utilisation de décorateurs en Python. Donnez un exemple pratique de situation où vous utiliseriez un décorateur."
+                value={formData.TestTechniquePython.utilisation_decorateurs}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "utilisation_decorateurs",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Gérer les exceptions
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Comment gérer les exceptions de manière robuste en Python? Donnez des exemples de situations où les exceptions seraient appropriées"
+                value={formData.TestTechniquePython.gestion_exceptions}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "gestion_exceptions",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Capturer les exceptions
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Pouvez-vous expliquer comment une exception peut être attrapée dans un programme Python ?"
+                value={formData.TestTechniquePython.capture_exception}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "capture_exception",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                threading_vs_multiprocessing
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Décrivez les différences entre le threading et le multiprocessing en Python. Quand choisiriez-vous l'un par rapport à l'autre?"
+                value={
+                  formData.TestTechniquePython.threading_vs_multiprocessing
+                }
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniquePython",
+                    "threading_vs_multiprocessing",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 12:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">
+              Test téchnique JavaScript
+            </h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                local_state_vs_global_state
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Comparez les avantages et les inconvénients des états locaux (local state) et des états gérés globalement (global state) dans une application Vue.js ou React.js."
+                value={
+                  formData.TestTechniqueJavaScript.local_state_vs_global_state
+                }
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueJavaScript",
+                    "local_state_vs_global_state",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                userlist_component
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Créez un composant fonctionnel nommé UserList qui reçoit une liste d'utilisateurs en tant que prop et affiche leurs noms dans une liste. Assurez-vous que le composant met à jour correctement le state avec la liste d'utilisateurs. (* sur vscode)"
+                value={formData.TestTechniqueJavaScript.userlist_component}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueJavaScript",
+                    "userlist_component",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                app_component
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Créez un composant parent nommé App qui contient le state avec une liste initiale d'utilisateurs. Ce composant doit rendre le composant UserList créé précédemment et un nouveau composant UserForm qui permet d'ajouter un nouvel utilisateur à la liste. (* sur vscode)"
+                value={formData.TestTechniqueJavaScript.app_component}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueJavaScript",
+                    "app_component",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                userform_component
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Implémentez le composant UserForm avec un formulaire simple qui permet à l'utilisateur de saisir un nom. Lorsque le formulaire est soumis, ajoutez un nouvel utilisateur à la liste dans le state du composant parent (App). Assurez-vous que le state est mis à jour correctement. (* sur vscode)"
+                value={formData.TestTechniqueJavaScript.userform_component}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueJavaScript",
+                    "userform_component",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
+
+      case 13:
+        return (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-blue-600">
+              Test téchnique fullstack
+            </h2>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Comment vous organisez-vous?
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Mettez en place une route côté serveur (Django, Flask) qui renvoie une liste d'utilisateurs au format JSON. La liste d'utilisateurs peut être stockée dans un fichier json. (* sur vscode)"
+                value={formData.TestTechniqueFullstack.route_serveur}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueFullstack",
+                    "route_serveur",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Requêtes vers une base de données
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Comment optimisez-vous les requêtes vers une base de données pour améliorer les performances d'une application? Parlez de l'indexation, du caching, ou d'autres stratégies que vous avez déjà mise en œuvre dans vos expériences."
+                value={
+                  formData.TestTechniqueFullstack.optimisation_requetes_bdd
+                }
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueFullstack",
+                    "optimisation_requetes_bdd",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Processus de déploiement
+              </label>
+              <textarea
+                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Décrivez le processus de déploiement d'une application fullstack, en mettant l'accent sur les bonnes pratiques. Parlez de l'utilisation d'outils tels que Docker, Kubernetes, ou autres, selon votre expérience."
+                value={formData.TestTechniqueFullstack.deploiement_fullstack}
+                onChange={(e) =>
+                  updateFormData(
+                    "TestTechniqueFullstack",
+                    "deploiement_fullstack",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+          </div>
+        );
 
       default:
         return null;
@@ -668,7 +1289,7 @@ function Entretien() {
     }
   };
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-28">
       <div className="bg-white shadow-xl rounded-lg w-full max-w-2xl p-6">
         {/* Barre de progression */}
         <div className="flex justify-between mb-6">
